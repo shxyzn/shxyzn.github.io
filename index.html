@@ -1,171 +1,488 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>박상현 | Portfolio</title>
+  <title>Sanghyun Park | Ajou University CVML Lab</title>
+  <meta name="description" content="Sanghyun Park (박상현) — Ph.D. student in Artificial Intelligence at Ajou University, CVML Lab. Computer vision, large language models, and machine learning." />
+  <meta property="og:title" content="Sanghyun Park" />
+  <meta property="og:description" content="Ph.D. student in Artificial Intelligence, Ajou University CVML Lab." />
+  <meta property="og:image" content="https://shxyzn.github.io/assets/profile.jpg" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231f4e8c'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='700' text-anchor='middle' fill='white'>SP</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <style>
+    :root {
+      --bg: #fbfbfa;
+      --surface: #ffffff;
+      --text: #1c1e21;
+      --muted: #5f6672;
+      --faint: #8a919c;
+      --line: #e6e8eb;
+      --accent: #1f4e8c;
+      --accent-soft: #e9f0fa;
+      --tag-bg: #f1f3f5;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111417;
+        --surface: #181c21;
+        --text: #e8eaed;
+        --muted: #a5adb8;
+        --faint: #7b8490;
+        --line: #272d35;
+        --accent: #7fb0f0;
+        --accent-soft: #1b2a40;
+        --tag-bg: #222830;
+        --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      max-width: 820px;
-      margin: 40px auto;
-      padding: 0 20px;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #222;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Nav ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+    nav .brand { font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+    nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
+    nav ul a { color: var(--muted); font-size: 14px; font-weight: 500; }
+    nav ul a:hover { color: var(--accent); text-decoration: none; }
+    @media (max-width: 600px) {
+      nav ul { gap: 14px; }
+      nav ul a { font-size: 13px; }
+      nav .brand { display: none; }
     }
 
-    header {
-      margin-bottom: 40px;
+    /* ---------- Hero ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 64px 0 48px;
     }
-
-    h1 {
-      margin-bottom: 5px;
-      font-size: 32px;
+    .hero img {
+      width: 200px; height: 200px;
+      object-fit: cover; object-position: top;
+      border-radius: 50%;
+      border: 4px solid var(--surface);
+      box-shadow: var(--shadow);
     }
-
-    h2 {
-      margin-top: 40px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 6px;
+    .hero h1 {
+      margin: 0 0 4px;
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .hero h1 .ko {
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 500;
       font-size: 22px;
+      color: var(--muted);
+      margin-left: 10px;
+      letter-spacing: 0;
+    }
+    .hero .role { margin: 0; font-size: 17px; color: var(--muted); }
+    .hero .role strong { color: var(--text); font-weight: 600; }
+    .contacts {
+      display: flex; flex-wrap: wrap; gap: 10px 18px;
+      margin: 18px 0 0; padding: 0; list-style: none;
+      font-size: 14.5px;
+    }
+    .contacts li { display: flex; align-items: center; gap: 6px; }
+    .contacts svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; color: var(--faint); }
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; gap: 24px; text-align: center; padding: 48px 0 32px; }
+      .hero img { margin: 0 auto; width: 160px; height: 160px; }
+      .hero h1 { font-size: 30px; }
+      .hero h1 .ko { display: block; margin: 4px 0 0; font-size: 18px; }
+      .contacts { justify-content: center; }
     }
 
-    h3 {
-      margin-bottom: 4px;
-      font-size: 18px;
+    /* ---------- Sections ---------- */
+    section { padding: 36px 0; border-top: 1px solid var(--line); }
+    h2 {
+      margin: 0 0 22px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex; align-items: center; gap: 12px;
+    }
+    h2 .count {
+      font-size: 12.5px; font-weight: 600;
+      color: var(--accent); background: var(--accent-soft);
+      padding: 2px 9px; border-radius: 999px;
+    }
+    h3.sub {
+      margin: 28px 0 12px;
+      font-size: 13px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--faint);
+    }
+    h3.sub:first-of-type { margin-top: 0; }
+
+    .about p { margin: 0 0 14px; font-size: 16.5px; }
+    .about p:last-child { margin-bottom: 0; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; }
+    .tags li {
+      font-size: 13.5px; font-weight: 500;
+      background: var(--tag-bg); color: var(--text);
+      padding: 5px 12px; border-radius: 999px;
     }
 
-    p {
-      margin-top: 4px;
+    /* Education timeline */
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .timeline li {
+      display: grid; grid-template-columns: 170px 1fr; gap: 20px;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .timeline li:last-child { border-bottom: none; }
+    .timeline .when { color: var(--muted); font-size: 14.5px; font-variant-numeric: tabular-nums; padding-top: 2px; }
+    .timeline .what { font-weight: 600; }
+    .timeline .where { color: var(--muted); font-size: 14.5px; }
+    @media (max-width: 640px) {
+      .timeline li { grid-template-columns: 1fr; gap: 2px; }
     }
 
-    a {
-      color: #0056b3;
-      text-decoration: none;
+    /* Publication / patent lists */
+    ol.pubs { list-style: none; margin: 0; padding: 0; counter-reset: pub; }
+    ol.pubs li {
+      position: relative;
+      padding: 14px 0 14px 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    ol.pubs li:last-child { border-bottom: none; }
+    ol.pubs li::before {
+      counter-increment: pub;
+      content: "[" counter(pub) "]";
+      position: absolute; left: 0; top: 15px;
+      color: var(--faint); font-size: 14px; font-variant-numeric: tabular-nums;
+    }
+    .pub-title { font-weight: 600; font-size: 16px; }
+    .pub-title a { color: var(--text); }
+    .pub-title a:hover { color: var(--accent); text-decoration: none; }
+    .authors { color: var(--muted); font-size: 14.5px; margin-top: 2px; }
+    .authors .me { color: var(--text); font-weight: 600; }
+    .venue { font-size: 14.5px; margin-top: 2px; color: var(--muted); }
+    .venue em { font-style: italic; color: var(--text); }
+    .links { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .links a {
+      font-size: 12.5px; font-weight: 600;
+      padding: 3px 10px; border-radius: 6px;
+      border: 1px solid var(--line);
+      color: var(--accent); background: var(--surface);
+    }
+    .links a:hover { background: var(--accent-soft); border-color: transparent; text-decoration: none; }
+    .badge {
+      display: inline-block; font-size: 11.5px; font-weight: 600;
+      padding: 1px 8px; border-radius: 999px; margin-left: 6px;
+      vertical-align: 2px; letter-spacing: .02em;
+    }
+    .badge.grant { background: #e3f6e9; color: #1d7a3e; }
+    .badge.filed { background: var(--tag-bg); color: var(--muted); }
+    .badge.workshop { background: var(--accent-soft); color: var(--accent); }
+    @media (prefers-color-scheme: dark) {
+      .badge.grant { background: #16351f; color: #7fd69a; }
     }
 
-    a:hover {
-      text-decoration: underline;
+    /* Projects */
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 22px;
+      box-shadow: var(--shadow);
     }
-
-    .item {
-      margin-bottom: 24px;
-    }
-
-    .meta {
-      color: #666;
-      font-size: 14px;
-    }
+    .card h3 { margin: 0 0 6px; font-size: 17px; }
+    .card .meta { color: var(--faint); font-size: 13px; margin: 0 0 10px; }
+    .card p { margin: 0; font-size: 14.5px; color: var(--muted); }
+    .card .links { margin-top: 12px; }
 
     footer {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
-      color: #666;
-      font-size: 14px;
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
+      color: var(--faint);
+      font-size: 13.5px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>박상현</h1>
-    <p>Graduate Student, CVML Lab, Ajou University</p>
-    <p>
-      Research interests: acoustic signal processing, anomaly detection,
-      multimodal learning, edge AI
-    </p>
-    <p>
-      Email: <a href="mailto:your.email@example.com">your.email@example.com</a> |
-      GitHub: <a href="https://github.com/your-id">github.com/your-id</a> |
-      Google Scholar: <a href="#">Google Scholar</a>
-    </p>
-  </header>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#top">Sanghyun Park</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#patents">Patents</a></li>
+        <li><a href="#projects">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <main>
-    <section id="papers">
-      <h2>Publications</h2>
-
-      <div class="item">
-        <h3>Lightweight Real-Time Vehicle Anomaly Detection via Acoustic and CAN Signal Fusion</h3>
-        <p class="meta">IEEE Access, 2026</p>
-        <p>
-          Proposed a lightweight multimodal anomaly detection framework using
-          acoustic signals and CAN data for real-time vehicle diagnosis.
-        </p>
-        <p>
-          <a href="#">Paper</a> |
-          <a href="#">Code</a> |
-          <a href="#">BibTeX</a>
-        </p>
+  <div class="wrap" id="top">
+    <header class="hero">
+      <img src="assets/profile.jpg" alt="Portrait of Sanghyun Park" />
+      <div>
+        <h1>Sanghyun Park<span class="ko">박상현</span></h1>
+        <p class="role"><strong>Ph.D. Student</strong>, Department of Artificial Intelligence</p>
+        <p class="role"><a href="https://sites.google.com/view/ajoucvml" target="_blank" rel="noopener">CVML Lab</a>, Ajou University</p>
+        <ul class="contacts">
+          <li>
+            <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <a href="mailto:hyun0666@ajou.ac.kr">hyun0666@ajou.ac.kr</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.9a3.4 3.4 0 0 0-1-2.6c3.1-.3 6.4-1.5 6.4-7A5.4 5.4 0 0 0 20 4.8 5 5 0 0 0 19.9 1s-1.2-.4-4 1.5a13.4 13.4 0 0 0-7 0C6.1.6 4.9 1 4.9 1A5 5 0 0 0 4.8 4.8a5.4 5.4 0 0 0-1.5 3.8c0 5.5 3.3 6.7 6.4 7a3.4 3.4 0 0 0-1 2.6V22"/></svg>
+            <a href="https://github.com/shxyzn" target="_blank" rel="noopener">github.com/shxyzn</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M6 9.5V15c0 1.7 2.7 3 6 3s6-1.3 6-3V9.5"/><path d="M22 7v6"/></svg>
+            <a href="https://sites.google.com/view/ajoucvml/members/sanghyun-park" target="_blank" rel="noopener">Lab profile</a>
+          </li>
+        </ul>
       </div>
+    </header>
 
-      <div class="item">
-        <h3>Paper Title</h3>
-        <p class="meta">Conference / Journal, Year</p>
+    <main>
+      <section id="about" class="about">
+        <h2>About</h2>
         <p>
-          Short description of the paper.
+          I am a Ph.D. student in the Department of Artificial Intelligence at Ajou University,
+          working in the <a href="https://sites.google.com/view/ajoucvml" target="_blank" rel="noopener">Computer Vision &amp; Machine Learning Lab</a>
+          under the supervision of Prof. Hyung Il Koo. I received my M.S. in Artificial Intelligence
+          and my B.S. in Electrical and Computer Engineering, both from Ajou University.
         </p>
         <p>
-          <a href="#">Paper</a> |
-          <a href="#">Code</a>
+          My work spans lightweight multimodal anomaly detection for vehicles (acoustic and CAN signal fusion),
+          real-world computer vision systems such as unauthorized banner detection and RGB–IR image registration,
+          and language-model-based sentence analysis and learning-support systems.
         </p>
-      </div>
-    </section>
+        <ul class="tags" aria-label="Research interests">
+          <li>Computer Vision</li>
+          <li>Large Language Models</li>
+          <li>Machine Learning</li>
+          <li>Anomaly Detection</li>
+          <li>Multimodal Learning</li>
+          <li>Edge AI</li>
+        </ul>
+      </section>
 
-    <section id="projects">
-      <h2>Projects</h2>
+      <section id="education">
+        <h2>Education</h2>
+        <ul class="timeline">
+          <li>
+            <div class="when">Mar. 2026 – Present</div>
+            <div>
+              <div class="what">Ph.D. in Artificial Intelligence</div>
+              <div class="where">Ajou University, Suwon, Korea</div>
+            </div>
+          </li>
+          <li>
+            <div class="when">Mar. 2024 – Feb. 2026</div>
+            <div>
+              <div class="what">M.S. in Artificial Intelligence</div>
+              <div class="where">Ajou University, Suwon, Korea</div>
+            </div>
+          </li>
+          <li>
+            <div class="when">Mar. 2019 – Feb. 2024</div>
+            <div>
+              <div class="what">B.S. in Electrical and Computer Engineering</div>
+              <div class="where">Ajou University, Suwon, Korea</div>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-      <div class="item">
-        <h3>Vehicle Anomalous Sound Detection</h3>
-        <p class="meta">Audio · CAN · Deep Learning</p>
-        <p>
-          Developed a system for detecting and localizing vehicle abnormal sounds
-          using smartphone microphones and vehicle CAN signals.
-        </p>
-        <p>
-          <a href="#">Project Page</a> |
-          <a href="#">GitHub</a>
-        </p>
-      </div>
+      <section id="publications">
+        <h2>Publications <span class="count">5</span></h2>
 
-      <div class="item">
-        <h3>Project Title</h3>
-        <p class="meta">Keyword · Keyword · Keyword</p>
-        <p>
-          Short description of the project.
-        </p>
-        <p>
-          <a href="#">GitHub</a> |
-          <a href="#">Demo</a>
-        </p>
-      </div>
-    </section>
+        <h3 class="sub">International</h3>
+        <ol class="pubs">
+          <li>
+            <div class="pub-title">
+              <a href="https://arxiv.org/pdf/2606.24143" target="_blank" rel="noopener">AsyncOPD: How Stale Can On-Policy Distillation Be?</a>
+              <span class="badge workshop">Workshop</span>
+            </div>
+            <div class="authors">Wonjun Kang, Kevin Galim, Seunghyuk Oh, Minjun Kang, <span class="me">Sanghyun Park</span>, Donghoon Kim, Minjae Lee, Minseo Kim, Rishabh Tiwari, Yuchen Zeng, Hyung Il Koo, Kangwook Lee</div>
+            <div class="venue"><em>ICML 2026</em>, DEMO Workshop</div>
+            <div class="links">
+              <a href="https://arxiv.org/pdf/2606.24143" target="_blank" rel="noopener">arXiv</a>
+            </div>
+          </li>
+          <li>
+            <div class="pub-title">
+              <a href="https://ieeexplore.ieee.org/document/11513388/" target="_blank" rel="noopener">Lightweight Real-Time Vehicle Anomaly Detection via Acoustic and CAN Signal Fusion</a>
+            </div>
+            <div class="authors"><span class="me">Sanghyun Park</span>, Hyung Il Koo</div>
+            <div class="venue"><em>IEEE Access</em>, 2026</div>
+            <div class="links">
+              <a href="https://ieeexplore.ieee.org/document/11513388/" target="_blank" rel="noopener">IEEE Xplore</a>
+            </div>
+          </li>
+          <li>
+            <div class="pub-title">
+              <a href="https://ieeexplore.ieee.org/document/11387891" target="_blank" rel="noopener">Automated Unauthorized Banner Detection System</a>
+            </div>
+            <div class="authors"><span class="me">Sanghyun Park</span>, Hyung Il Koo</div>
+            <div class="venue"><em>IEEE International Conference on ICT Convergence (ICTC)</em>, Jeju, Korea, Oct. 2025</div>
+            <div class="links">
+              <a href="https://ieeexplore.ieee.org/document/11387891" target="_blank" rel="noopener">IEEE Xplore</a>
+            </div>
+          </li>
+        </ol>
 
-    <section id="patents">
-      <h2>Patents</h2>
+        <h3 class="sub">Domestic</h3>
+        <ol class="pubs">
+          <li>
+            <div class="pub-title">
+              <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003169586" target="_blank" rel="noopener">인공지능 기반 맞춤형 문법 학습 지원 시스템</a>
+            </div>
+            <div class="authors">조범근, <span class="me">박상현</span>, 최소미, 이수열, 구형일</div>
+            <div class="venue"><em>전자공학회논문지</em>, Vol. 62, No. 1, Jan. 2025</div>
+            <div class="links">
+              <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003169586" target="_blank" rel="noopener">KCI</a>
+            </div>
+          </li>
+          <li>
+            <div class="pub-title">특징점과 설명자를 이용한 RGB-IR(적외선) 이미지 정합</div>
+            <div class="authors"><span class="me">박상현</span>, 한재웅, 구형일</div>
+            <div class="venue"><em>제36회 영상처리 및 이해에 관한 워크샵 (IPIU 2024)</em>, Feb. 2024</div>
+          </li>
+        </ol>
+      </section>
 
-      <div class="item">
-        <h3>Patent Title</h3>
-        <p class="meta">Korean Patent Application, Year</p>
-        <p>
-          Short description of the patented idea or application.
-        </p>
-      </div>
+      <section id="patents">
+        <h2>Patents <span class="count">8</span></h2>
 
-      <div class="item">
-        <h3>Patent Title</h3>
-        <p class="meta">Patent Status, Year</p>
-        <p>
-          Short description of the patent.
-        </p>
-      </div>
-    </section>
-  </main>
+        <h3 class="sub">International</h3>
+        <ol class="pubs">
+          <li>
+            <div class="pub-title">Vehicle Abnormality Detection System <span class="badge filed">Filed</span></div>
+            <div class="authors">Hyungil Koo, <span class="me">Sanghyun Park</span>, Minjun Kang, Hye Yeon Lee, Kyoung Soo We, Jung Mo Koo</div>
+            <div class="venue">US 19/406,539, Dec. 2025</div>
+          </li>
+          <li>
+            <div class="pub-title">System and Method for Analyzing Sentence <span class="badge filed">Filed</span></div>
+            <div class="authors">Hyungil Koo, <span class="me">Sanghyun Park</span>, Minjun Kang</div>
+            <div class="venue">EP 25155311.1, Jan. 2025</div>
+          </li>
+          <li>
+            <div class="pub-title">文章分析システム及び方法 (System and Method for Analyzing Sentence) <span class="badge grant">Granted</span></div>
+            <div class="authors">Hyungil Koo, <span class="me">Sanghyun Park</span>, Minjun Kang</div>
+            <div class="venue">JP 2025-015612, Jan. 2025</div>
+          </li>
+          <li>
+            <div class="pub-title">System and Method for Analyzing Sentence <span class="badge filed">Filed</span></div>
+            <div class="authors">Hyungil Koo, <span class="me">Sanghyun Park</span>, Minjun Kang</div>
+            <div class="venue">US 18/929,690, Oct. 2024</div>
+          </li>
+        </ol>
 
-  <footer>
-    <p>© 2026 Sanghyun Park. Last updated: July 2026.</p>
-  </footer>
+        <h3 class="sub">Domestic (Korea)</h3>
+        <ol class="pubs">
+          <li>
+            <div class="pub-title">차량의 이상 감지 시스템 <span class="badge filed">출원</span></div>
+            <div class="authors">구형일, <span class="me">박상현</span>, 강민준</div>
+            <div class="venue">KR 10-2025-0112526, Aug. 2025</div>
+          </li>
+          <li>
+            <div class="pub-title">이미지의 어노테이션 정보 제공 방법, 시스템, 및 컴퓨터 프로그램 <span class="badge filed">출원</span></div>
+            <div class="authors">구형일, 권경범, <span class="me">박상현</span>, 나우진</div>
+            <div class="venue">KR 10-2024-0152521, Oct. 2024</div>
+          </li>
+          <li>
+            <div class="pub-title">구문 분석 기반의 문장 분할 시스템 및 방법 <span class="badge filed">출원</span></div>
+            <div class="authors">구형일, <span class="me">박상현</span>, 강민준</div>
+            <div class="venue">KR 10-2024-0101469, Jul. 2024</div>
+          </li>
+          <li>
+            <div class="pub-title">의존 구문 분석 기반의 문장 수식 관계 분석 시스템 및 방법 <span class="badge filed">출원</span></div>
+            <div class="authors">구형일, <span class="me">박상현</span></div>
+            <div class="venue">KR 10-2024-0101468, Jul. 2024</div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Vehicle Anomalous Sound Detection</h3>
+            <p class="meta">Audio · CAN · Deep Learning</p>
+            <p>
+              A lightweight system for detecting and localizing abnormal vehicle sounds in real time
+              by fusing smartphone microphone audio with vehicle CAN signals.
+            </p>
+            <div class="links">
+              <a href="https://ieeexplore.ieee.org/document/11513388/" target="_blank" rel="noopener">Paper</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Automated Unauthorized Banner Detection</h3>
+            <p class="meta">Computer Vision · Object Detection</p>
+            <p>
+              A vision-based pipeline that automatically detects unauthorized outdoor banners
+              to support municipal monitoring and enforcement.
+            </p>
+            <div class="links">
+              <a href="https://ieeexplore.ieee.org/document/11387891" target="_blank" rel="noopener">Paper</a>
+            </div>
+          </div>
+          <div class="card">
+            <h3>LLM-based Sentence Analysis</h3>
+            <p class="meta">NLP · Dependency Parsing · Education</p>
+            <p>
+              Syntax-aware sentence segmentation and modifier-relation analysis, applied to an
+              AI-driven personalized grammar learning support system.
+            </p>
+            <div class="links">
+              <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003169586" target="_blank" rel="noopener">Paper</a>
+              <a href="#patents">Patents</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Sanghyun Park</span>
+      <span>Last updated: September 2026</span>
+    </footer>
+  </div>
 </body>
 </html>
