@@ -215,19 +215,18 @@
       .badge.grant { background: #16351f; color: #7fd69a; }
     }
 
-    /* Projects */
-    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 20px 22px;
-      box-shadow: var(--shadow);
+    /* Research projects */
+    .timeline.projects .what { font-size: 15.5px; line-height: 1.5; }
+    .timeline.projects .en { color: var(--muted); font-size: 14px; margin-top: 1px; }
+    .timeline.projects .where { color: var(--faint); font-size: 13.5px; margin-top: 2px; }
+    .timeline.projects .badge { margin-left: 8px; }
+    .timeline.projects .badge + .badge { margin-left: 4px; }
+    .badge.lead { background: var(--accent-soft); color: var(--accent); }
+    .badge.member { background: var(--tag-bg); color: var(--muted); }
+    .badge.ongoing { background: #e3f6e9; color: #1d7a3e; }
+    @media (prefers-color-scheme: dark) {
+      .badge.ongoing { background: #16351f; color: #7fd69a; }
     }
-    .card h3 { margin: 0 0 6px; font-size: 17px; }
-    .card .meta { color: var(--faint); font-size: 13px; margin: 0 0 10px; }
-    .card p { margin: 0; font-size: 14.5px; color: var(--muted); }
-    .card .links { margin-top: 12px; }
 
     footer {
       border-top: 1px solid var(--line);
@@ -443,43 +442,87 @@
       </section>
 
       <section id="projects">
-        <h2>Projects</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Vehicle Anomalous Sound Detection</h3>
-            <p class="meta">Audio · CAN · Deep Learning</p>
-            <p>
-              A lightweight system for detecting and localizing abnormal vehicle sounds in real time
-              by fusing smartphone microphone audio with vehicle CAN signals.
-            </p>
-            <div class="links">
-              <a href="https://ieeexplore.ieee.org/document/11513388/" target="_blank" rel="noopener">Paper</a>
+        <h2>Research Projects <span class="count">9</span></h2>
+
+        <h3 class="sub">Industry</h3>
+        <ul class="timeline projects">
+          <li>
+            <div class="when">Sep. 2026 – Aug. 2027</div>
+            <div>
+              <div class="what">차량 주행 환경 감지를 위한 소리 기반 AI 기술 개발 (3차년도) <span class="badge lead">Lead</span><span class="badge ongoing">Ongoing</span></div>
+              <div class="en">Sound-based AI for Driving-Environment Perception, Year 3</div>
+              <div class="where">Hyundai Motor Company (현대자동차)</div>
             </div>
-          </div>
-          <div class="card">
-            <h3>Automated Unauthorized Banner Detection</h3>
-            <p class="meta">Computer Vision · Object Detection</p>
-            <p>
-              A vision-based pipeline that automatically detects unauthorized outdoor banners
-              to support municipal monitoring and enforcement.
-            </p>
-            <div class="links">
-              <a href="https://ieeexplore.ieee.org/document/11387891" target="_blank" rel="noopener">Paper</a>
+          </li>
+          <li>
+            <div class="when">Aug. 2025 – Jul. 2026</div>
+            <div>
+              <div class="what">차량 주행 환경 감지를 위한 소리 기반 AI 기술 개발 (2차년도) <span class="badge lead">Lead</span></div>
+              <div class="en">Sound-based AI for Driving-Environment Perception, Year 2</div>
+              <div class="where">Hyundai Motor Company (현대자동차)</div>
             </div>
-          </div>
-          <div class="card">
-            <h3>LLM-based Sentence Analysis</h3>
-            <p class="meta">NLP · Dependency Parsing · Education</p>
-            <p>
-              Syntax-aware sentence segmentation and modifier-relation analysis, applied to an
-              AI-driven personalized grammar learning support system.
-            </p>
-            <div class="links">
-              <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003169586" target="_blank" rel="noopener">Paper</a>
-              <a href="#patents">Patents</a>
+          </li>
+          <li>
+            <div class="when">Jul. 2025 – Dec. 2025</div>
+            <div>
+              <div class="what">전자제품 특화 DB 구축을 위한 언어 Model 학습 <span class="badge member">Researcher</span></div>
+              <div class="en">Language Model Training for an Electronics-Specialized Database</div>
+              <div class="where">Samsung Electronics (삼성전자)</div>
             </div>
-          </div>
-        </div>
+          </li>
+          <li>
+            <div class="when">Nov. 2024 – Nov. 2025</div>
+            <div>
+              <div class="what">험로 위험성 판단을 위한 영상 기반 AI 기술 개발 <span class="badge member">Researcher</span></div>
+              <div class="en">Vision-based AI for Rough-Road Hazard Assessment</div>
+              <div class="where">Hyundai Motor Company (현대자동차)</div>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jun. 2024 – May 2025</div>
+            <div>
+              <div class="what">차량의 사전 고장 인지를 위한 차량 데이터 기반 AI 활용 로직 개발 <span class="badge member">Researcher</span></div>
+              <div class="en">Vehicle-Data-Driven AI Logic for Early Fault Detection</div>
+              <div class="where">Hyundai Motor Company (현대자동차)</div>
+            </div>
+          </li>
+          <li>
+            <div class="when">May 2024 – Oct. 2024</div>
+            <div>
+              <div class="what">OCR 응용 기술 개발 프로젝트 <span class="badge lead">Lead</span></div>
+              <div class="en">OCR Application Technology Development</div>
+              <div class="where">MarkAny Inc. (마크애니)</div>
+            </div>
+          </li>
+        </ul>
+
+        <h3 class="sub">Government</h3>
+        <ul class="timeline projects">
+          <li>
+            <div class="when">Mar. 2024 – Feb. 2027</div>
+            <div>
+              <div class="what">지능형 의료영상 진단 솔루션 개발 <span class="badge member">Researcher</span><span class="badge ongoing">Ongoing</span></div>
+              <div class="en">Development of an Intelligent Medical Image Diagnosis Solution</div>
+              <div class="where">Institute for Information &amp; Communications Technology Planning &amp; Evaluation (IITP, 정보통신기획평가원)</div>
+            </div>
+          </li>
+          <li>
+            <div class="when">Mar. 2024 – Dec. 2026</div>
+            <div>
+              <div class="what">인공지능융합혁신인재양성 <span class="badge member">Researcher</span><span class="badge ongoing">Ongoing</span></div>
+              <div class="en">AI Convergence Innovation Human Resources Development</div>
+              <div class="where">Institute for Information &amp; Communications Technology Planning &amp; Evaluation (IITP, 정보통신기획평가원)</div>
+            </div>
+          </li>
+          <li>
+            <div class="when">Mar. 2024 – Feb. 2025</div>
+            <div>
+              <div class="what">Ajou DREAM 인공지능 혁신인재 양성사업단 <span class="badge member">Researcher</span></div>
+              <div class="en">Ajou DREAM AI Innovation Talent Development Program</div>
+              <div class="where">National Research Foundation of Korea (NRF, 한국연구재단)</div>
+            </div>
+          </li>
+        </ul>
       </section>
     </main>
 
