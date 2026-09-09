@@ -71,11 +71,16 @@
       height: 56px;
     }
     nav .brand { font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
-    nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
+    nav ul {
+      list-style: none; display: flex; gap: 22px; margin: 0; padding: 0;
+      overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+    }
+    nav ul::-webkit-scrollbar { display: none; }
+    nav ul li { flex: none; }
     nav ul a { color: var(--muted); font-size: 14px; font-weight: 500; }
     nav ul a:hover { color: var(--accent); text-decoration: none; }
     @media (max-width: 600px) {
-      nav ul { gap: 14px; }
+      nav ul { gap: 16px; }
       nav ul a { font-size: 13px; }
       nav .brand { display: none; }
     }
@@ -215,17 +220,19 @@
       .badge.grant { background: #16351f; color: #7fd69a; }
     }
 
-    /* Research projects */
-    .timeline.projects .what { font-size: 15.5px; line-height: 1.5; }
-    .timeline.projects .en { color: var(--muted); font-size: 14px; margin-top: 1px; }
-    .timeline.projects .where { color: var(--faint); font-size: 13.5px; margin-top: 2px; }
-    .timeline.projects .badge { margin-left: 8px; }
-    .timeline.projects .badge + .badge { margin-left: 4px; }
+    /* Research projects & awards */
+    .timeline.detail .what { font-size: 15.5px; line-height: 1.5; }
+    .timeline.detail .en { color: var(--muted); font-size: 14px; margin-top: 1px; }
+    .timeline.detail .where { color: var(--faint); font-size: 13.5px; margin-top: 2px; }
+    .timeline.detail .badge { margin-left: 8px; }
+    .timeline.detail .badge + .badge { margin-left: 4px; }
     .badge.lead { background: var(--accent-soft); color: var(--accent); }
     .badge.member { background: var(--tag-bg); color: var(--muted); }
     .badge.ongoing { background: #e3f6e9; color: #1d7a3e; }
+    .badge.gold { background: #fdf1cf; color: #8a5a00; }
     @media (prefers-color-scheme: dark) {
       .badge.ongoing { background: #16351f; color: #7fd69a; }
+      .badge.gold { background: #3a2e10; color: #f0c860; }
     }
 
     footer {
@@ -248,6 +255,7 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#patents">Patents</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#awards">Awards</a></li>
       </ul>
     </div>
   </nav>
@@ -445,13 +453,13 @@
         <h2>Research Projects <span class="count">9</span></h2>
 
         <h3 class="sub">Industry</h3>
-        <ul class="timeline projects">
+        <ul class="timeline detail">
           <li>
             <div class="when">Sep. 2026 – Aug. 2027</div>
             <div>
               <div class="what">차량 주행 환경 감지를 위한 소리 기반 AI 기술 개발 (3차년도) <span class="badge lead">Lead</span><span class="badge ongoing">Ongoing</span></div>
               <div class="en">Sound-based AI for Driving-Environment Perception, Year 3</div>
-              <div class="where">Hyundai Motor Company (현대자동차)</div>
+              <div class="where">Hyundai Motor Group (현대자동차)</div>
             </div>
           </li>
           <li>
@@ -459,7 +467,7 @@
             <div>
               <div class="what">차량 주행 환경 감지를 위한 소리 기반 AI 기술 개발 (2차년도) <span class="badge lead">Lead</span></div>
               <div class="en">Sound-based AI for Driving-Environment Perception, Year 2</div>
-              <div class="where">Hyundai Motor Company (현대자동차)</div>
+              <div class="where">Hyundai Motor Group (현대자동차)</div>
             </div>
           </li>
           <li>
@@ -475,7 +483,7 @@
             <div>
               <div class="what">험로 위험성 판단을 위한 영상 기반 AI 기술 개발 <span class="badge member">Researcher</span></div>
               <div class="en">Vision-based AI for Rough-Road Hazard Assessment</div>
-              <div class="where">Hyundai Motor Company (현대자동차)</div>
+              <div class="where">Hyundai Motor Group (현대자동차)</div>
             </div>
           </li>
           <li>
@@ -483,7 +491,7 @@
             <div>
               <div class="what">차량의 사전 고장 인지를 위한 차량 데이터 기반 AI 활용 로직 개발 <span class="badge member">Researcher</span></div>
               <div class="en">Vehicle-Data-Driven AI Logic for Early Fault Detection</div>
-              <div class="where">Hyundai Motor Company (현대자동차)</div>
+              <div class="where">Hyundai Motor Group (현대자동차)</div>
             </div>
           </li>
           <li>
@@ -497,7 +505,7 @@
         </ul>
 
         <h3 class="sub">Government</h3>
-        <ul class="timeline projects">
+        <ul class="timeline detail">
           <li>
             <div class="when">Mar. 2024 – Feb. 2027</div>
             <div>
@@ -520,6 +528,42 @@
               <div class="what">Ajou DREAM 인공지능 혁신인재 양성사업단 <span class="badge member">Researcher</span></div>
               <div class="en">Ajou DREAM AI Innovation Talent Development Program</div>
               <div class="where">National Research Foundation of Korea (NRF, 한국연구재단)</div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="awards">
+        <h2>Honors &amp; Awards <span class="count">4</span></h2>
+        <ul class="timeline detail">
+          <li>
+            <div class="when">Aug. 2026</div>
+            <div>
+              <div class="what">부총리 겸 과학기술정보통신부 장관상 <span class="badge gold">1st Place</span></div>
+              <div class="en">Deputy Prime Minister and Minister of Science and ICT Award</div>
+              <div class="where">ICT 챌린지 (ICT Challenge)</div>
+            </div>
+          </li>
+          <li>
+            <div class="when">Dec. 2023</div>
+            <div>
+              <div class="what">산학박람회 대상 <span class="badge gold">1st Place</span></div>
+              <div class="en">Grand Prize, Industry-Academia Fair</div>
+              <div class="where">Department of Electrical and Computer Engineering, Ajou University</div>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jul. 2023</div>
+            <div>
+              <div class="what">Mini-Drone Autonomous Flight Competition, Technology Workshop <span class="badge gold">1st Place</span></div>
+              <div class="where">Korean Institute of Electrical Engineers (KIEE, 대한전기학회)</div>
+            </div>
+          </li>
+          <li>
+            <div class="when">Jul. 2023</div>
+            <div>
+              <div class="what">Mini-Drone Autonomous Flight Competition <span class="badge member">3rd Place</span></div>
+              <div class="where">Korean Institute of Electrical Engineers (KIEE, 대한전기학회)</div>
             </div>
           </li>
         </ul>
